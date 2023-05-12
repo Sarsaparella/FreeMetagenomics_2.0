@@ -50,18 +50,18 @@ for file_name in file_list:
         else:
             path_folder_zone = f'{folder_path}/{file_name}/'
 
-    file_shp = list(filter(lambda x: x.endswith('.shp') and 'boundaries' not in x, os.listdir(path_folder_zone)))
-    print(file_name, file_shp)
-    df_zone = gpd.read_file(path_folder_zone + file_shp[0])
+        file_shp = list(filter(lambda x: x.endswith('.shp') and 'boundaries' not in x, os.listdir(path_folder_zone)))
+        print(file_name, file_shp)
+        df_zone = gpd.read_file(path_folder_zone + file_shp[0])
 
-    if file_shp[0].startswith('High_Seas'):
-        out_list = [i for i in list(list(df_zone['geometry'])[0].geoms)]
-        df_zone = pd.concat([df_zone] * len(out_list), ignore_index=True)
-        df_zone.geometry = out_list
-        df_zone.area_km2 = df_zone.to_crs(epsg=3857).area / 1e6
-        df_zone = df_zone.rename(columns={'name': 'POL_TYPE'})
+        if file_shp[0].startswith('High_Seas'):
+            out_list = [i for i in list(list(df_zone['geometry'])[0].geoms)]
+            df_zone = pd.concat([df_zone] * len(out_list), ignore_index=True)
+            df_zone.geometry = out_list
+            df_zone.area_km2 = df_zone.to_crs(epsg=3857).area / 1e6
+            df_zone = df_zone.rename(columns={'name': 'POL_TYPE'})
 
-    df_mar_zones = pd.concat([df_mar_zones, df_zone])
+        df_mar_zones = pd.concat([df_mar_zones, df_zone])
 
 df_mar_zones.POL_TYPE = df_mar_zones.POL_TYPE.apply(lambda x: '200NM' if x == '200 NM' else x)
 
