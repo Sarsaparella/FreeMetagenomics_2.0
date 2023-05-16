@@ -56,6 +56,7 @@ Around 2 min.
 ```ruby
 bbmerge.sh in1=R1_phix_removed.fastq in2=R2_phix_removed.fastq out=merged.fastq outu=unmerged.fastq ihist=histogram.txt minoverlap=16
 ```
+Around 4 min.
 
 ## Step 3: normalising
 > Quality-controlled reads were normalized (bbnorm.sh target = 40, mindepth = 0)
@@ -67,7 +68,7 @@ bbnorm.sh in=merged.fq out=merged_normalized.fq target=40 mindepth=0
 Amound 20 min for 30Gb. Time increases linearly.
 
 ## Step 4: shit of shit
-> ... they were assembled with metaSPAdes (v.3.11.1 or v.3.12 if required)53. The resulting scaffolded contigs (hereafter scaffolds) were finally filtered by length (≥1 kb).
+> ... they were assembled with metaSPAdes (v.3.11.1 or v.3.12 if required). The resulting scaffolded contigs (hereafter scaffolds) were finally filtered by length (≥1 kb).
 
 ## Step 5: mapping
 > ... metagenomic samples were grouped into several sets and, for each sample set, the quality-controlled metagenomic reads from all samples were individually mapped against the scaffolds of each sample, resulting in the following numbers of pairwise readset to scaffold mappings
