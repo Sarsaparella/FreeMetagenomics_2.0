@@ -30,6 +30,7 @@ pip install illumina-utils
 iu-gen-configs samples.txt
 iu-filter-quality-minoche sample_name.ini --ignore-deflines
 ```
+Around 1 hour.
 
 The `samples.txt` TAB-separated file from the TARA OCEAN project could be found by the following [link](http://merenlab.org/data/tara-oceans-mags/files/samples.txt). It looks like:
 ```
@@ -39,12 +40,16 @@ sample_name	reads1_1.fastq.gz,reads2_1.fastq.gz	reads1_2.fastq.gz,reads2_2.fastq
 
 Afterwards, the clean reads still should be filtered:
 ```ruby
-bbduk.sh in1=sample_name-QUALITY_PASSED_R1.fastq in2=sample_name-QUALITY_PASSED_R2.fastq out1=sample_name-filtered_R1.fastq out2=sample_name_filtered_R2.fastq qtrim=rl trimq=14 maq=20 maxns=0 minlength=45
+bbduk.sh in1=sample_name-QUALITY_PASSED_R1.fastq in2=sample_name-QUALITY_PASSED_R2.fastq out1=sample_name_filtered_R1.fastq out2=sample_name_filtered_R2.fastq qtrim=rl trimq=14 maq=20 maxns=0 minlength=45
 ```
+Around 2.5 min.
+
+
 And the control should be removed too:
 ```ruby
-bbmap.sh in=sample_name-filtered_*.fastq out=*_phix_removed.fastq ref=phix.fa nodisk
+bbmap.sh in=sample_name_filtered_*.fastq out=*_phix_removed.fastq ref=phix.fa nodisk
 ```
+Around 2 min.
 
 ## Step 2: merging
 > Downstream analyses were performed on quality-controlled reads or if specified, merged quality-controlled reads (bbmerge.sh minoverlap = 16).
@@ -59,6 +64,7 @@ All files should be normalised (forward, reverse, meerged, and unmerged). The co
 ```ruby
 bbnorm.sh in=merged.fq out=merged_normalized.fq target=40 mindepth=0
 ```
+Amound 20 min for 30Gb. Time increases linearly.
 
 ## Step 4: shit of shit
 > ... they were assembled with metaSPAdes (v.3.11.1 or v.3.12 if required)53. The resulting scaffolded contigs (hereafter scaffolds) were finally filtered by length (≥1 kb).
