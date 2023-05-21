@@ -92,7 +92,7 @@ __default__:
   cpuspertask: 1
   mempercpu: "1000mb"
   time: "5:00"
-  account: "snic2022-22-1132"
+  account: "YOUR_ACCOUNT"
   partition: "shared"
   output: "path/to/magpipe/snakes/cluster_config/snake_output.out"
 
