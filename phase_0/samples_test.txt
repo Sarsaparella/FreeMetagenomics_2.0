@@ -1,0 +1,2 @@
+sample	r1	r2
+ASE_68_05M	ERR598982_1.fastq.gz,ERR599107_2.fastq.gz	ERR598982_2.fastq.gz,ERR599107_2.fastq.gz
