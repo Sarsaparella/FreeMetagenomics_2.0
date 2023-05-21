@@ -136,6 +136,11 @@ snakemake -s magpipe_snake.smk --configfile path/to/magpipe/configs/test_config.
 
 
 ## 5. Run snakemake and debug ＵＴｪＴＵ
+```bash
+sbatch run_snakemake.sh
+```
+
+
 Good luck! :shipit:
 
 
