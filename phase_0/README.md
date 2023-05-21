@@ -11,7 +11,7 @@ So far, this phase could be split up into several steps:
 5. mapping filtered reads to scaffolds.
 
 
-## Step 1: removing the trash
+## Step 1: cleaning reads
 > Sequencing reads from all metagenomes were quality filtered using BBMap (v.38.71) by removing sequencing adapters from the reads, 
 > removing reads that mapped to quality control sequences (PhiX genome) and discarding low quality reads using the parameters trimq = 14, maq = 20, maxns = 0 and minlength = 45.
 
