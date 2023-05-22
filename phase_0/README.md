@@ -91,15 +91,15 @@ Around 7 hours for input of 27 Gb forward and reverse reads each, with ~256 Gb R
 
 ```bash
 # Indexing the reference
-bwa index scaffold.fa                 # 3 min
+bwa index scaffold.fa                                     # ~5 min
+
 # Mapping reads onto the reference
-bwa mem -a -o mapped.sam scaffold.fa forward_normalized.fastq reverse_normalized.fastq
-# Transforming SAM into BAM
-samtools view -F 4 -bS -o mapped.bam mapped.sam
-# Removing reads with insufficient mapping
-samtools view -h mapped.bam | awk -F '\t' 'length($10) >= 45 && $3 >= 97 && ($4/length($10)) >= 0.8' | samtools view -bS - > mapped_filtered.bam
+bwa mem -a -o mapped.sam scaffold.fa sample_name-QUALITY_PASSED_R1.fastq sample_name-QUALITY_PASSED_R2.fastq   # 1 hour with -t 10
+
+# Removing reads with insufficient mapping + Transforming SAM into BAM
+samtools view -h mapped.sam | awk -F'\t' '{ if ($1 ~ /^@/ || ($6 ~ /^[0-9]+M$/ && $5 >= 45 && (($4 + $5) / length($10)) >= 0.8)) print }' | samtools view -bS -F 4 - > mapped_filtered.bam                 # ~5 min
 # Sorting the final file
-samtools sort -o mapped_sorted.bam mapped_filtered.bam
+samtools sort -o mapped_sorted.bam mapped_filtered.bam    # ~5 min
 ```
 
-Overall, the whole step is performed in 3 hours for a file with scaffolds of ~200 Mb and total reads of 60 Gb, <256 Gb RAM.
+Overall, the whole step is performed in 1.5 hours for a file with scaffolds of ~200 Mb and total reads of 60 Gb, <256 Gb RAM.
