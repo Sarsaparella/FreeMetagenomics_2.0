@@ -43,8 +43,8 @@ mv assembly_folder/final.contigs.fa .
 # index the reference
 bwa index final.contigs.fa
 
-# map reads onto the reference
-bwa mem -a -o ASE_68_05M_mapped.sam final.contigs.fa ASE_68_05M_R1_normalized.fastq ASE_68_05M_R2_normalized.fastq
+# map reads onto the reference (after using megahit)
+bwa mem -a -o ASE_68_05M_mapped.sam final.contigs.fa ASE_68_05M-QUALITY_PASSED_R1.fastq ASE_68_05M_R2-QUALITY_PASSED_R2.fastq
 
 # transform SAM into BAM
 samtools view -F 4 -bS -o ASE_68_05M_mapped.bam ASE_68_05M_mapped.sam
