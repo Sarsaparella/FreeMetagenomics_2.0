@@ -10,6 +10,7 @@ So far, this phase could be split up into several steps:
 4. performing an assembly of scaffolds;
 5. mapping filtered reads to scaffolds.
 
+> ❗Please, find a Snakemake file tailored to the Tara Ocenn data here and instructions to its installment in the [./set_up/cluster_set_up](https://github.com/GusevaPolina/FreeMetagenomics/blob/main/set_up/cluster_set_up.md) file
 
 ## Step 1: cleaning reads
 > Sequencing reads from all metagenomes were quality filtered using BBMap (v.38.71) by removing sequencing adapters from the reads, 
@@ -55,7 +56,11 @@ bbmap.sh in=sample_name_filtered_*.fastq out=*_phix_removed.fastq ref=phix.fa no
 ```
 Around 2 min, a file of 30 Gb, <32 Gb RAM.
 
-## Step 2: merging
+## Step 2: merging (*is not needed)
+<aside>
+  <p>❗This instruction is mentioned in the original desciption but is not needed for our version </p>
+</aside>
+
 > Downstream analyses were performed on quality-controlled reads or if specified, merged quality-controlled reads (bbmerge.sh minoverlap = 16).
 ```bash
 # Merging forward and reverse reads
@@ -69,7 +74,8 @@ Around 4 min, for forward and reverse of ~30 Gb each, <32 Gb RAM.
 All files should be normalised (forward, reverse, meerged, and unmerged). The code example is for `merged.fastq`:
 ```bash
 # Normalise reads
-bbnorm.sh in=merged.fastq out=merged_normalized.fastq target=40 mindepth=0
+bbnorm.sh in=R1_phix_removed.fastq out=forward_normalized.fastq target=40 mindepth=0
+bbnorm.sh in=R2_phix_removed.fastq out=reverse_normalized.fastq target=40 mindepth=0
 ```
 Around 20 min for ~30Gb, <32 Gb RAM. Time increases linearly.
 
@@ -80,7 +86,7 @@ As even more modern versions of `metaSPAdes` require around 36-48 hours of run w
 
 ```bash
 # Assembling reads into scaffolds 
-megahit -1 forward_normalized.fastq  -2 reverse_normalized.fastq --min-contig-len 1000 -o output_folder --num-cpu-threads 80
+megahit -1 forward_normalized.fastq -2 reverse_normalized.fastq --min-contig-len 1000 -o output_folder --num-cpu-threads 80
 ```
 Around 7 hours for input of 27 Gb forward and reverse reads each, with ~256 Gb RAM.
 
@@ -94,7 +100,7 @@ Around 7 hours for input of 27 Gb forward and reverse reads each, with ~256 Gb R
 bwa index scaffold.fa                                     # ~5 min
 
 # Mapping reads onto the reference
-bwa mem -a -o mapped.sam scaffold.fa sample_name-QUALITY_PASSED_R1.fastq sample_name-QUALITY_PASSED_R2.fastq   # 1 hour with -t 10
+bwa mem -a -o mapped.sam scaffold.fa R1_phix_removed.fastq R2_phix_removed.fastq   # 1 hour with -t 10
 
 # Removing reads with insufficient mapping + Transforming SAM into BAM
 samtools view -h mapped.sam | awk -F'\t' '{ if ($1 ~ /^@/ || ($6 ~ /^[0-9]+M$/ && $5 >= 45 && (($4 + $5) / length($10)) >= 0.8)) print }' | samtools view -bS -F 4 - > mapped_filtered.bam                 # ~5 min
