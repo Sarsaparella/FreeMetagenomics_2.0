@@ -17,5 +17,6 @@ The aim is to restore the whole pipeline on the PDC cluster to work from raw rea
 
 As a result, a list of BGCs and annotated protein-coding genes of prokaryotic organisms is provided. As an example of possible output from the Paoli _et al._ (2022) contains a lot of antibiotics, drugs, nutraceuticals, biofuels, etc. Among them, many new bioactive compounds and pathways were discovered.
 
+> The current setting are created spesifically for clusters with SLURM system and the Tara Ocean data.
 
 Good luck! :shipit:
