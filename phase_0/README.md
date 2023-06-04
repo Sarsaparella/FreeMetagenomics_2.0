@@ -44,7 +44,7 @@ sample_name	reads1_1.fastq.gz,reads2_1.fastq.gz	reads1_2.fastq.gz,reads2_2.fastq
 Afterwards, the clean reads still should be filtered:
 ```bash
 # Removing low-quality reads
-bbduk.sh in1=sample_name-QUALITY_PASSED_R1.fastq in2=sample_name-QUALITY_PASSED_R2.fastq out1=sample_name_filtered_R1.fastq out2=sample_name_filtered_R2.fastq qtrim=rl trimq=14 maq=20 maxns=0 minlength=45
+bbduk.sh in1=sample_name-QUALITY_PASSED_R1.fastq in2=sample_name-QUALITY_PASSED_R2.fastq out1=R1_filtered.fastq out2=R2_filtered.fastq qtrim=rl trimq=14 maq=20 maxns=0 minlength=45
 ```
 Around 2.5 min, for forward and reverse of ~30 Gb each, <32 Gb RAM.
 
@@ -52,9 +52,10 @@ Around 2.5 min, for forward and reverse of ~30 Gb each, <32 Gb RAM.
 And the control should be removed too:
 ```bash
 # Removing a control
-bbmap.sh in=sample_name_filtered_*.fastq out=*_phix_removed.fastq ref=phix.fa nodisk
+bbmap.sh in=R1_filtered.fastq out=R1_phix_removed.fastq ref=phix.fa nodisk
+bbmap.sh in=R2_filtered.fastq out=R2_phix_removed.fastq ref=phix.fa nodisk
 ```
-Around 2 min, a file of 30 Gb, <32 Gb RAM.
+Around 2 min per command, a file of 30 Gb, <32 Gb RAM.
 
 ## Step 2: merging (*is not needed)
 <aside>
@@ -71,13 +72,13 @@ Around 4 min, for forward and reverse of ~30 Gb each, <32 Gb RAM.
 ## Step 3: normalising
 > Quality-controlled reads were normalized (bbnorm.sh target = 40, mindepth = 0)
 
-All files should be normalised (forward, reverse, meerged, and unmerged). The code example is for `merged.fastq`:
+All files should be normalised (forward, reverse, _merged, and unmerged_).
 ```bash
 # Normalise reads
 bbnorm.sh in=R1_phix_removed.fastq out=forward_normalized.fastq target=40 mindepth=0
 bbnorm.sh in=R2_phix_removed.fastq out=reverse_normalized.fastq target=40 mindepth=0
 ```
-Around 20 min for ~30Gb, <32 Gb RAM. Time increases linearly.
+Around 20 min for ~30Gb per command, <32 Gb RAM. Time increases linearly.
 
 ## Step 4: assembling scaffolds
 > ... they were assembled with metaSPAdes (v.3.11.1 or v.3.12 if required). The resulting scaffolded contigs (hereafter scaffolds) were finally filtered by length (≥1 kb).
