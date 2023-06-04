@@ -50,7 +50,15 @@ conda config --show
 conda/mamba info
 conda config --add pkgs_dirs /new_path_pkgs/
 ```
+## Create environment for phase 0
 
+The original magpipe lacks the first step that prepairs input files for the pipeline. To prepares those files you will need to install additional software in a separate environment. 
+
+You can find the file with requirements for this environment in the “phase_0” folder
+
+```bash
+conda create --name phase_0 --file phase0_requirements.txt
+```
 
 > Please, be aware that this is an example for the PDC cluster, however, we hope it is universal :)
 
