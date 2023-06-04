@@ -59,7 +59,17 @@ You can find the file with requirements for this environment in the â€œphase_0â€
 ```bash
 conda create --name phase_0 --file phase0_requirements.txt
 ```
+Add path to BBmap in your PATH in .bashrc 
 
+```bash
+# check path to BBmap folder
+which bbduk.sh
+```
+
+```bash
+# add the path in your .bahsrc file
+export PATH="path/to/envs/phase_0/bin:$PATH"
+```
 > Please, be aware that this is an example for the PDC cluster, however, we hope it is universal :)
 
 
