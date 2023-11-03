@@ -1,0 +1,64 @@
+
+Currently Loaded Modules:
+  1) craype-x86-rome                           11) cray-mpich/8.1.17
+  2) libfabric/1.15.0.0                        12) craype/2.7.16
+  3) craype-network-ofi                        13) perftools-base/22.06.0
+  4) xpmem/2.3.2-2.2_9.4__g93dd7ee.shasta      14) cpe/22.06
+  5) snic-env/1.0.0                            15) PDC/22.06
+  6) systemdefault/1.0.0                  (S)  16) anaconda3/2022.05
+  7) PrgEnv-cray/8.3.3                         17) ncurses/6.3
+  8) cce/14.0.1                                18) libevent/2.1.8
+  9) cray-dsmml/0.2.2                          19) tmux/3.2a
+ 10) cray-libsci/21.08.1.2                     20) cray-python/3.9.12.1
+
+  Where:
+   S:  Module is Sticky, requires --force to unload or purge
+
+ 
+
+Unlocking working directory.
+unlocking
+removed all locks
+
+MAGPIPE
+=======
+
+Starting by purging the module system.
+
+Running snakemake file .........................: setup_snake.py
+Located in folder ..............................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/magpipe/magpipe
+Using working directory ........................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/
+With magpipe path ..............................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master
+Using environments .............................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs
+Running in debug mode ..........................: False
+
+The pipeline is moving forward using this input:
+Dataset #0
+datasets .......................................: test_dataset
+samples ........................................: /cfs/klemming/scratch/e/erikzhi/project/test_dataset/samples.list
+debug ..........................................: ERR599144
+assemblies .....................................: /cfs/klemming/scratch/e/erikzhi/project/test_dataset/metagenomic_assemblies
+backmapping ....................................: /cfs/klemming/scratch/e/erikzhi/project/test_dataset/depth_files
+diffcov ........................................: 2
+depth_sfx ......................................: _a2
+
+The output will be structured as follows:
+The main output folder is ......................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/outputs
+Each metagenomic dataset will be processed in ..: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/outputs/metagenomes
+MAGs will be pooled in .........................: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/outputs/MAGs/test_dataset/MAGs
+Integrations (ext genomes + MAGs) will be in ...: /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/outputs/integrated/test_dataset/MAGs
+The temp output / anvio databases will be in ...: None
+
+The pipeline is using the following binning method(s):
+method              tool      suffix       min_bin_size    min_contig_size    max_edges    min_cv
+------------------  --------  ---------  --------------  -----------------  -----------  --------
+metabat2_sensitive  metabat2  _c2k_e500          200000               2000          500         1
+
+Filtering settings:
+Completeness ...................................: 50%
+Contamination ..................................: 10%
+
+Running magpipe ................................: Phase 1
+
+Starting snakemake
+

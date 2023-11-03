@@ -1,0 +1,5 @@
+cluster-config: "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/cluster_configs/cluster.yaml"
+cluster: "sbatch --job-name={cluster.jobname} --nodes={cluster.nodes} --ntasks-per-node={cluster.ntaskspernode} --cpus-per-task={cluster.cpuspertask} --mem-per-cpu={cluster.mempercpu} --time={cluster.time} --account={cluster.account} --partition={cluster.partition} --output={cluster.output} --export=ALL "
+jobs: 99
+verbose: true
+notemp: true

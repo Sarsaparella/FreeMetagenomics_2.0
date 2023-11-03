@@ -1,0 +1,21 @@
+java -ea -Xmx50866m -Xms50866m -cp /cfs/klemming/scratch/e/erikzhi/additional_envs/phase_0/opt/bbmap-39.01-1/current/ jgi.BBDuk in1=ASE_67_05M-QUALITY_PASSED_R1.fastq in2=ASE_67_05M-QUALITY_PASSED_R2.fastq out1=ASE_67_05M_R1_filtered.fastq out2=ASE_67_05M_R2_filtered.fastq qtrim=rl trimq=14 maq=20 maxns=0 minlength=45
+Executing jgi.BBDuk [in1=ASE_67_05M-QUALITY_PASSED_R1.fastq, in2=ASE_67_05M-QUALITY_PASSED_R2.fastq, out1=ASE_67_05M_R1_filtered.fastq, out2=ASE_67_05M_R2_filtered.fastq, qtrim=rl, trimq=14, maq=20, maxns=0, minlength=45]
+Version 39.01
+
+0.189 seconds.
+Initial:
+Memory: max=53351m, total=53351m, free=53309m, used=42m
+
+Input is being processed as paired
+Started output streams:	0.328 seconds.
+Processing time:   		64.957 seconds.
+
+Input:                  	148584718 reads 		15653938378 bases.
+QTrimmed:               	1410610 reads (0.95%) 	11195680 bases (0.07%)
+Low quality discards:   	1456308 reads (0.98%) 	101048130 bases (0.65%)
+Total Removed:          	1494164 reads (1.01%) 	112243810 bases (0.72%)
+Result:                 	147090554 reads (98.99%) 	15541694568 bases (99.28%)
+
+Time:                         	65.289 seconds.
+Reads Processed:        148m 	2275.81k reads/sec
+Bases Processed:      15653m 	239.77m bases/sec

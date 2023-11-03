@@ -1,0 +1,19 @@
+Building DAG of jobs...
+Full Traceback (most recent call last):
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/__init__.py", line 760, in snakemake
+    success = workflow.execute(
+              ^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/workflow.py", line 749, in execute
+    self.persistence.lock()
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/persistence.py", line 185, in lock
+    raise snakemake.exceptions.LockException()
+snakemake.exceptions.LockException: Error: Directory cannot be locked. Please make sure that no other Snakemake process is trying to create the same files in the following directory:
+/cfs/klemming/scratch/e/erikzhi/project/magpipe-master
+If you are sure that no other instances of snakemake are running on this directory, the remaining lock was likely caused by a kill signal or a power loss. It can be removed with the --unlock argument.
+
+LockException:
+Error: Directory cannot be locked. Please make sure that no other Snakemake process is trying to create the same files in the following directory:
+/cfs/klemming/scratch/e/erikzhi/project/magpipe-master
+If you are sure that no other instances of snakemake are running on this directory, the remaining lock was likely caused by a kill signal or a power loss. It can be removed with the --unlock argument.
+unlocking
+removed all locks

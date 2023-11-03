@@ -1,0 +1,2 @@
+datasets	samples	debug	assemblies	backmapping	diffcov
+test_dataset	/cfs/klemming/scratch/e/erikzhi/project/test_dataset/samples.list	ERR599144	/cfs/klemming/scratch/e/erikzhi/project/test_dataset/metagenomic_assemblies/	/cfs/klemming/scratch/e/erikzhi/project/test_dataset/depth_files/	2

@@ -1,0 +1,80 @@
+Building DAG of jobs...
+Creating conda environment envs/metabat2_env.yaml...
+Downloading and installing remote packages.
+Full Traceback (most recent call last):
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 590, in create
+    out = create_env(env_file, filetype="yaml")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 552, in create_env
+    out = shell.check_output(
+          ^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/shell.py", line 63, in check_output
+    return sp.check_output(cmd, shell=True, executable=executable, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/subprocess.py", line 465, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/subprocess.py", line 569, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/__init__.py", line 760, in snakemake
+    success = workflow.execute(
+              ^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/workflow.py", line 930, in execute
+    dag.create_conda_envs(
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/dag.py", line 354, in create_conda_envs
+    env.create(dryrun)
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 609, in create
+    raise CreateCondaEnvironmentException(
+snakemake.exceptions.CreateCondaEnvironmentException: Could not create conda environment from /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs/metabat2_env.yaml:
+Command:
+mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"
+Output:
+warning  libmamba Invalid package cache, could not read 'paths.json' from '/cfs/klemming/scratch/e/erikzhi/additional_pkgs/libdeflate-1.0-h14c3975_1': failed to open /cfs/klemming/scratch/e/erikzhi/additional_pkgs/libdeflate-1.0-h14c3975_1/info/files: No such file or directory
+    
+warning  libmamba Invalid package cache, could not read 'paths.json' from '/cfs/klemming/scratch/e/erikzhi/additional_pkgs/htslib-1.9-ha228f0b_7': failed to open /cfs/klemming/scratch/e/erikzhi/additional_pkgs/htslib-1.9-ha228f0b_7/info/files: No such file or directory
+    
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Pip subprocess error:
+/nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe should either be a path to a local project or a VCS url beginning with svn+, git+, hg+, or bzr+
+You are using pip version 10.0.1, however version 20.3.4 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+
+failed
+
+CondaEnvException: Pip failed
+
+
+
+CreateCondaEnvironmentException:
+Could not create conda environment from /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs/metabat2_env.yaml:
+Command:
+mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"
+Output:
+warning  libmamba Invalid package cache, could not read 'paths.json' from '/cfs/klemming/scratch/e/erikzhi/additional_pkgs/libdeflate-1.0-h14c3975_1': failed to open /cfs/klemming/scratch/e/erikzhi/additional_pkgs/libdeflate-1.0-h14c3975_1/info/files: No such file or directory
+    
+warning  libmamba Invalid package cache, could not read 'paths.json' from '/cfs/klemming/scratch/e/erikzhi/additional_pkgs/htslib-1.9-ha228f0b_7': failed to open /cfs/klemming/scratch/e/erikzhi/additional_pkgs/htslib-1.9-ha228f0b_7/info/files: No such file or directory
+    
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Pip subprocess error:
+/nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe should either be a path to a local project or a VCS url beginning with svn+, git+, hg+, or bzr+
+You are using pip version 10.0.1, however version 20.3.4 is available.
+You should consider upgrading via the 'pip install --upgrade pip' command.
+
+failed
+
+CondaEnvException: Pip failed
+
+
+unlocking
+removing lock
+removing lock
+removed all locks

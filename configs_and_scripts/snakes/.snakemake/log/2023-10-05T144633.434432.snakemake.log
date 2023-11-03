@@ -1,0 +1,79 @@
+Building DAG of jobs...
+Your conda installation is not configured to use strict channel priorities. This is however crucial for having robust and correct environments (for details, see https://conda-forge.org/docs/user/tipsandtricks.html). Please consider to configure strict priorities by executing 'conda config --set channel_priority strict'.
+Removing incomplete Conda environment envs/checkm_env.yaml...
+Creating conda environment envs/checkm_env.yaml...
+Downloading and installing remote packages.
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... checkm data setRoot /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a11c3ebbec3e3cbe57e6285db9359f6b_/checkm_data
+
+done
+
+Environment for /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs/checkm_env.yaml created (location: .snakemake/conda/a11c3ebbec3e3cbe57e6285db9359f6b_)
+Creating conda environment envs/metabat2_env.yaml...
+Downloading and installing remote packages.
+Full Traceback (most recent call last):
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 590, in create
+    out = create_env(env_file, filetype="yaml")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 552, in create_env
+    out = shell.check_output(
+          ^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/shell.py", line 63, in check_output
+    return sp.check_output(cmd, shell=True, executable=executable, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/subprocess.py", line 465, in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/subprocess.py", line 569, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command 'mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/__init__.py", line 760, in snakemake
+    success = workflow.execute(
+              ^^^^^^^^^^^^^^^^^
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/workflow.py", line 930, in execute
+    dag.create_conda_envs(
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/dag.py", line 354, in create_conda_envs
+    env.create(dryrun)
+  File "/cfs/klemming/home/e/erikzhi/.conda/envs/magpipe/lib/python3.11/site-packages/snakemake/deployment/conda.py", line 609, in create
+    raise CreateCondaEnvironmentException(
+snakemake.exceptions.CreateCondaEnvironmentException: Could not create conda environment from /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs/metabat2_env.yaml:
+Command:
+mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"
+Output:
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Pip subprocess error:
+ERROR: /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file).
+
+failed
+
+CondaEnvException: Pip failed
+
+
+
+CreateCondaEnvironmentException:
+Could not create conda environment from /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/envs/metabat2_env.yaml:
+Command:
+mamba env create --quiet --file "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_.yaml" --prefix "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/.snakemake/conda/a5817b11a651520de7b2e69088713781_"
+Output:
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+Installing pip dependencies: ...working... Pip subprocess error:
+ERROR: /nfs/nas22/fs2202/biol_micro_sunagawa/Projects/DEV/MAGPIPE_DEV/code/magpipe is not a valid editable requirement. It should either be a path to a local project or a VCS URL (beginning with bzr+http, bzr+https, bzr+ssh, bzr+sftp, bzr+ftp, bzr+lp, bzr+file, git+http, git+https, git+ssh, git+git, git+file, hg+file, hg+http, hg+https, hg+ssh, hg+static-http, svn+ssh, svn+http, svn+https, svn+svn, svn+file).
+
+failed
+
+CondaEnvException: Pip failed
+
+
+unlocking
+removing lock
+removing lock
+removed all locks

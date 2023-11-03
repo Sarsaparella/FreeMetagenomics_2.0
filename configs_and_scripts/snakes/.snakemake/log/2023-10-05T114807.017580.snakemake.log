@@ -1,0 +1,3 @@
+ImportError in file /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/magpipe_snake.smk, line 19:
+cannot import name 'pretty' from 'magpipe' (unknown location)
+  File "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/magpipe_snake.smk", line 19, in <module>

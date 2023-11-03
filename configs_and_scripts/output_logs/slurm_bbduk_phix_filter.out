@@ -1,0 +1,23 @@
+java -ea -Xmx32004m -Xms32004m -cp /cfs/klemming/scratch/e/erikzhi/additional_envs/phase_0/opt/bbmap-39.01-1/current/ jgi.BBDuk in1=ASE_67_05M_R1_filtered.fastq in2=ASE_67_05M_R2_filtered.fastq out1=ASE_67_05M_R1_phix_unmatched.fastq out2=ASE_67_05M_R2_phix_unmatched.fastq outm1=ASE_67_05M_R1_phix_removed_bbduk.fastq outm2=ASE_67_05M_R2_phix_removed_bbduk.fastq ref=phix.fa k=31 hdist=1
+Executing jgi.BBDuk [in1=ASE_67_05M_R1_filtered.fastq, in2=ASE_67_05M_R2_filtered.fastq, out1=ASE_67_05M_R1_phix_unmatched.fastq, out2=ASE_67_05M_R2_phix_unmatched.fastq, outm1=ASE_67_05M_R1_phix_removed_bbduk.fastq, outm2=ASE_67_05M_R2_phix_removed_bbduk.fastq, ref=phix.fa, k=31, hdist=1]
+Version 39.01
+
+0.170 seconds.
+Initial:
+Memory: max=33562m, total=33562m, free=33529m, used=33m
+
+Added 487396 kmers; time: 	1.100 seconds.
+Memory: max=33562m, total=33562m, free=33504m, used=58m
+
+Input is being processed as paired
+Started output streams:	0.074 seconds.
+Processing time:   		68.261 seconds.
+
+Input:                  	147090554 reads 		15541694568 bases.
+Contaminants:           	0 reads (0.00%) 	0 bases (0.00%)
+Total Removed:          	0 reads (0.00%) 	0 bases (0.00%)
+Result:                 	147090554 reads (100.00%) 	15541694568 bases (100.00%)
+
+Time:                         	69.437 seconds.
+Reads Processed:        147m 	2118.33k reads/sec
+Bases Processed:      15541m 	223.82m bases/sec

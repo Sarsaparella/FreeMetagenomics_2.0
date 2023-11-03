@@ -1,0 +1,41 @@
+__default__:
+  jobname: "{rule}.{wildcards}"
+  nodes: 1
+  ntaskspernode: 1
+  cpuspertask: 1
+  mempercpu: "1000mb"
+  time: "10:00"
+  account: "naiss2023-22-585"
+  partition: "shared"
+  output: "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/cluster_config/snake_output.out"
+
+depth:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+
+metabat2:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+
+vamb:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+
+export_evaluation:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+
+checkm:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+
+checkm_ext_genomes:
+  partition: "shared"
+  mem: 3000
+  time: "00:05:00"
+

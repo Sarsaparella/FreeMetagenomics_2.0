@@ -1,0 +1,12 @@
+Full Traceback (most recent call last):
+  File "/pdc/software/22.06/eb/software/anaconda3/2022.05/lib/python3.9/site-packages/snakemake/__init__.py", line 593, in snakemake
+    workflow.include(
+  File "/pdc/software/22.06/eb/software/anaconda3/2022.05/lib/python3.9/site-packages/snakemake/workflow.py", line 1190, in include
+    exec(compile(code, snakefile.get_path_or_uri(), "exec"), self.globals)
+  File "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/magpipe_snake.smk", line 19, in <module>
+    from magpipe import pretty
+ModuleNotFoundError: No module named 'magpipe'
+
+ModuleNotFoundError in line 19 of /cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/magpipe_snake.smk:
+No module named 'magpipe'
+  File "/cfs/klemming/scratch/e/erikzhi/project/magpipe-master/snakes/magpipe_snake.smk", line 19, in <module>
